@@ -1,0 +1,57 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: compact
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Style/TrivialAccessors:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+
+Style/GuardClause:
+  Enabled: false
+
+Style/WordArray:
+  Exclude:
+    - 'Rakefile'
+    - 'tasks/**/*.rake'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - 'tasks/**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/**/*.rb'

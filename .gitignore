@@ -1,0 +1,7 @@
+/Gemfile.lock
+/coverage
+/docs
+/docs.tgz
+/.ruby-version
+/.yardoc
+/rspec-xml_helpers-*.gem

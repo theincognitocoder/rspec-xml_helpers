@@ -1,0 +1,28 @@
+script: bundle exec rake build
+rvm:
+- ruby-2.3.7
+- ruby-2.4.4
+- ruby-2.5.1
+- ruby-head
+- jruby-head
+deploy:
+- provider: rubygems
+  gemspec: rspec-xml_helpers.gemspec
+  skip_cleanup: true
+  api_key:
+  on:
+    ruby: ruby-2.5.1
+    branch: master
+    tags: true
+- provider: releases
+  skip_cleanup: true
+  fileglob: true
+  file:
+  - docs.tgz
+  - rspec-xml_helpers-*.gem
+  api_key:
+  on:
+    ruby: ruby-2.5.1
+    repo: theincognitocoder/rspec-xml_helpers
+    branch: master
+    tags: true

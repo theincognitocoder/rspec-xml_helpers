@@ -9,6 +9,7 @@ deploy:
   gemspec: rspec-xml_helpers.gemspec
   skip_cleanup: true
   api_key:
+    secure: "k5juZ7hJO6MDyJRlT7oCn5otmRh14UknSe/JWVSl9JyoUfLIhClHjkgIUa/ySJPQWOK8E6a4qu8lf/uz9IwBdHhH40GMegvuUyMY/Z8GUOSZ5a0cb42Qala5JwGwq+fyJhVYaWU2R8xbKUVUq3JqGPYpSwzxXJzGvNOHhjinqMQbbvUmBDX8z+C/ulzEs33B3F3wl9vcjYo3kDETxarWZtlbRiflLDWBefnPtOhbt7rzb7qD152FFbvKQP9Ac4OItxVp8FheWzSOB1flK/utdnOi2JfIhenVPBvqCnfrgMz54QaYFr2iB0sHYiMlLPJNxYn0lsOY7WDEyUch0KVVaP373pPa4ijIZ9VwW1panEM6CDPvkmz/cymhQTI5lHYYXHRqmsnXBeMHFEwTcczFWnweESwUL7YNQ9+hOFfI0El859wM8OO1lg1c7Hl5V60iuRTGgzsylwXacsbrRrOUuqkVzvIpRWLbHuWqZsH9Ak+UCE7WSKF8CGc2NudPshXtpR7pqmOF0Ruk4T+qzLqcuDvgE4QOgVjkzsbkBIi6URtcZ3/eMqCRqKGbPhEzb2tOZZvXU6TOp6aX+uiP1I0Fxpfv6KENj70Q+0aptteM2xjgL8k7PQQrqh/iUxO23M8c/fBLQ5V7388f9O84BG2Ll/zh0xRqWk7Vr2sBn4+ml/E="
   on:
     ruby: ruby-2.5.1
     branch: master
@@ -20,6 +21,7 @@ deploy:
   - docs.tgz
   - rspec-xml_helpers-*.gem
   api_key:
+    secure: "vUarHEmFXD+nTiJsDKHE+1antdyyi517DWS1CWsHr+le7DsWrYzSMFDtwAkOqaE5PsEe37DFTPopl3lbruvuSeEU0NNiIyPE6/a3l6772FgBcUPpcaAZaJlaoL+NcPpta5p39XHyEiSQO0Bv5rzcOxpchNfAW1mMRFgTh7ADQqtS+s+QOw24JiQbWa4e/yX02pS48NA2gaisdzqU53a+yHm15cGesr/K7zFmgoGxRs7AR5CnqBFdJrGb3g47Hul5+P2leFo/5t390ZXsnrI3ZzHg4DXbuYidBg/oZ5DWpzIeP8CbcF3Q+sEa//3PlNHhCYQd8lWNn227Nkc8KOQP6b3fCjdXDsesjM4704ObQj6xurQX75LKNDkhZA1ilj0OyQ2STZjxp28m92UHqeknKUOWSSk05+u/Z/I06xncM2E1H+boT/fEdMzoufJZdGXmAvwV9apd9oIhaQAr//4Ntmdn8F08xYsqilvhrGeAI0catBF8ZqniiX2peKBdFrNJfkmgygeWV6KGiwosD6uCQlNqalMCYoL+TzT5FwfXUK/iIGGOqhxlqWgxJg8ifl8bWd3uv6vkJEL5vhycv215xMyX0SfkR06Aojhr/wQwNgWCPdYnVFwIF6hjijFvF5dyaMELc7RAhHL6m/ORPapRrfLz7jDMeCoLwUawkzeTXp4="
   on:
     ruby: ruby-2.5.1
     repo: theincognitocoder/rspec-xml_helpers

@@ -4,7 +4,6 @@ rvm:
 - ruby-2.4.4
 - ruby-2.5.1
 - ruby-head
-- jruby-head
 deploy:
 - provider: rubygems
   gemspec: rspec-xml_helpers.gemspec

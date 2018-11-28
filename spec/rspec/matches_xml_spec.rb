@@ -13,6 +13,10 @@ module RSpec
         expect('<xml/>').not_to match_xml('<xml atttr="value"/>')
       end
 
+      it 'considers whitespace significant for elements without children' do
+        expect('<xml> </xml>').not_to match_xml('<xml/>')
+      end
+
       it 'matches nested XML strings' do
         expect('<xml><nested/></xml>').to match_xml('<xml><nested/></xml>')
       end

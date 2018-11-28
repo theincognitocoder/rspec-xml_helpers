@@ -1,4 +1,4 @@
-# Rspec Xml Helpers
+# Rspec XML Helpers
 
 [![Build Status](https://travis-ci.org/theincognitocoder/rspec-xml_helpers.svg?branch=master)](https://travis-ci.org/theincognitocoder/rspec-xml_helpers)
 [![Coverage Status](https://coveralls.io/repos/github/theincognitocoder/rspec-xml_helpers/badge.svg?branch=master)](https://coveralls.io/github/theincognitocoder/rspec-xml_helpers?branch=master)
@@ -16,12 +16,32 @@ Rspec Xml Helpers
 Add rspec-xml_helpers to your project's Gemfile and then bundle install.
 
 ```ruby
-gem 'rspec-xml_helpers', '0.1.0-alpha'
+gem 'rspec-xml_helpers', '~> 1.0'
 ```
 
 ## Basic Usage
 
-...
+Add the following to your `spec_helper.rb`:
+
+    require 'rspec/xml_helpers'
+
+Now you can do the following in your specs:
+
+    expect('<xml/>').to match_xml('<xml/>')
+
+The `match_xml` helper has the following qualities:
+
+* XML attribute ordering does not effect equality.
+* Order of XML elements with the same name is significant.
+* Order of XML elements with different names does not effect equality.
+* Self-closed elements are considered equal to empty elements.
+* Whitespace is ignored in XML nodes that contain children.
+
+This matcher has a few known limitations:
+
+* XML namespaces are ignored.
+* XML entities are ignored.
+* XML nodes may not contain both text and child nodes.
 
 ## License
 

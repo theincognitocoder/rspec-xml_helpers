@@ -11,4 +11,4 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require 'rspec-xml_helpers'
+require 'rspec/xml_helpers'

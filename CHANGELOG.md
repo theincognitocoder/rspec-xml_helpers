@@ -3,6 +3,9 @@
 Unreleased Changes
 ------------------
 
+v1.0.2 (2018-11-28)
+--------------------
+
 * Improve error messages for non-matching XML documents and
   for values that are not valid XML strings.
 

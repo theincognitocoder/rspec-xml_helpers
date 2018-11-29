@@ -9,6 +9,9 @@ module RSpec
     # @api private
     class XmlMatcher
 
+      EXPECTED_XML = 'Expected XML, but encountered an error while ' \
+        'parsing the actual value: %<error>s'
+
       def initialize(expected, colorize: true)
         @expected = XmlHelpers.normalize_xml(expected)
         @diff_format = colorize ? :color : :text
@@ -17,13 +20,13 @@ module RSpec
       def matches?(actual)
         @actual = XmlHelpers.normalize_xml(actual)
         @expected == @actual
-      rescue ArgumentError => error
-        @wrong_type_error_message = error.message
+      rescue NawsXml::ParseError => error
+        @error_message = format(EXPECTED_XML, error: error.message)
         false
       end
 
       def failure_message
-        @wrong_type_error_message || diff_json_error_message
+        @error_message || diff_json_error_message
       end
 
       def failure_message_when_negated
@@ -32,9 +35,9 @@ module RSpec
 
       def diff_json_error_message
         message = StringIO.new
-        message << "expected: #{@expected}\n\n"
-        message << "got: #{@actual}\n\n"
-        message << "Diff: #{diff}"
+        message << "Expected:\n\n#{@expected}\n"
+        message << "Got:\n\n#{@actual}\n"
+        message << "Diff:\n\n#{diff}"
         message.string
       end
 

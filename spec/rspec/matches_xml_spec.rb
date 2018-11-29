@@ -55,6 +55,45 @@ module RSpec
         expected = '<xml><c>1</c><c>2</c></xml>'
         expect(actual).not_to match_xml(expected)
       end
+
+      it 'gives a helpful error message when xml does not match' do
+        actual = '<xml><node>value</node></xml>'
+        expected = '<xml><otherNode>value</otherNode></xml>'
+        matcher = XmlMatcher.new(expected, colorize: false)
+        matcher.matches?(actual)
+        expect(matcher.failure_message).to eq(<<~MSG)
+          Expected:
+
+          <xml>
+            <otherNode>value</otherNode>
+          </xml>
+
+          Got:
+
+          <xml>
+            <node>value</node>
+          </xml>
+
+          Diff:
+
+           <xml>
+          -  <otherNode>value</otherNode>
+          +  <node>value</node>
+        MSG
+      end
+
+      it 'gives a helpful error message actual is not valid XML' do
+        expect do
+          expect('').to match_xml('<xml/>')
+        end.to raise_error(RSpec::Expectations::ExpectationNotMetError,
+          /Expected XML, but encountered an error while parsing the actual value:/)
+      end
+
+      it 'gives a helpful error message actual is not a String' do
+        expect do
+          expect(false).to match_xml('<xml/>')
+        end.to raise_error(/wrong argument type/)
+      end
     end
   end
 end

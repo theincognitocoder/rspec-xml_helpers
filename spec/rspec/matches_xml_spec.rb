@@ -82,17 +82,18 @@ module RSpec
         MSG
       end
 
-      it 'gives a helpful error message actual is not valid XML' do
+      it 'gives a helpful error message when actual is not valid XML' do
         expect do
           expect('').to match_xml('<xml/>')
         end.to raise_error(RSpec::Expectations::ExpectationNotMetError,
-          /Expected XML, but encountered an error while parsing the actual value:/)
+          /^Expected actual to be an XML string, encountered error while parsing:/)
       end
 
-      it 'gives a helpful error message actual is not a String' do
+      it 'gives a helpful error message when expected is not valid XML' do
         expect do
-          expect(false).to match_xml('<xml/>')
-        end.to raise_error(/wrong argument type/)
+          expect('<xml/>').to match_xml(123)
+        end.to raise_error(ArgumentError,
+          /^Encountered an error parsing the match_xml expected value:/)
       end
     end
   end

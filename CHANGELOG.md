@@ -3,6 +3,8 @@
 Unreleased Changes
 ------------------
 
+* Add negative match_xml error message.
+
 v1.0.3 (2018-11-29)
 --------------------
 

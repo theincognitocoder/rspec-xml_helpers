@@ -47,7 +47,7 @@ module RSpec
       end
 
       def failure_message_when_negated
-        'expected XML value not to be equal'
+        'Expected XML value not to match.'
       end
 
       def diff_json_error_message

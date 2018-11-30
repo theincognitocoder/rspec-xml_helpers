@@ -95,6 +95,12 @@ module RSpec
         end.to raise_error(ArgumentError,
           /^Encountered an error parsing the match_xml expected value:/)
       end
+
+      it 'gives an error when negation matching fails' do
+        expect do
+          expect('<xml/>').not_to match_xml('<xml/>')
+        end.to raise_error(RSpec::Expectations::ExpectationNotMetError, 'Expected XML value not to match.')
+      end
     end
   end
 end

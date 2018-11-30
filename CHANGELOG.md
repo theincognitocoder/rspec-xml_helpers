@@ -3,6 +3,9 @@
 Unreleased Changes
 ------------------
 
+v1.0.3 (2018-11-29)
+--------------------
+
 * Add helpful ArgumentError message when the expected value
   is not a valid XML string.
 

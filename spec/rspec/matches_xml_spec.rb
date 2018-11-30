@@ -84,16 +84,16 @@ module RSpec
 
       it 'gives a helpful error message when actual is not valid XML' do
         expect do
-          expect('').to match_xml('<xml/>')
+          expect(123).to match_xml('<xml/>')
         end.to raise_error(RSpec::Expectations::ExpectationNotMetError,
-          /^Expected actual to be an XML string, encountered error while parsing:/)
+          /^Expected actual to be an XML string, encountered error while parsing:.+123/m)
       end
 
       it 'gives a helpful error message when expected is not valid XML' do
         expect do
-          expect('<xml/>').to match_xml(123)
+          expect('<xml/>').to match_xml('123')
         end.to raise_error(ArgumentError,
-          /^Encountered an error parsing the match_xml expected value:/)
+          /^Encountered an error parsing the match_xml expected value:.+123/m)
       end
 
       it 'gives an error when negation matching fails' do

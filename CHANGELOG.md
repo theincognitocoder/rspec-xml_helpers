@@ -3,6 +3,8 @@
 Unreleased Changes
 ------------------
 
+* Fix a bug where invalid XML strings could be omitted from the error message.
+
 v1.0.4 (2018-11-29)
 --------------------
 

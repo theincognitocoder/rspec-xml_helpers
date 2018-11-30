@@ -64,9 +64,9 @@ module RSpec
       end
 
       def got(value)
-        got = value.inspect unless value.is_a?(String)
-        got = xml.inspect if got == ''
-        got
+        value = value.inspect unless value.is_a?(String)
+        value = xml.inspect if value == ''
+        value
       end
 
     end

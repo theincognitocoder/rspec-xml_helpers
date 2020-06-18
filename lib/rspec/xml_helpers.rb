@@ -10,7 +10,11 @@ module RSpec
   module XmlHelpers
     # @param [String<XML>] expected
     def match_xml(expected)
-      XmlMatcher.new(expected)
+      XmlMatcher.new(expected, ordered: false)
+    end
+
+    def match_ordered_xml(expected)
+      XmlMatcher.new(expected, ordered: true)
     end
 
     class << self
@@ -18,8 +22,8 @@ module RSpec
       # @param [String<XML>] xml
       # @return [String<XML>]
       # @api private
-      def normalize_xml(xml)
-        XmlFormatter.new.format(xml)
+      def normalize_xml(xml, ordered:)
+        XmlFormatter.new.format(xml, ordered: ordered)
       end
 
     end

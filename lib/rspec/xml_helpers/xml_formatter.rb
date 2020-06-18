@@ -9,9 +9,9 @@ module RSpec
     # @api private
     class XmlFormatter
 
-      def format(xml)
+      def format(xml, ordered:)
         xml = NawsXml::Parser.new.parse(xml)
-        xml = stable_sort(xml)
+        xml = stable_sort(xml) unless ordered
         xml.to_s(indent: '  ')
       end
 

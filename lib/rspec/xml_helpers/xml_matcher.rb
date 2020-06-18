@@ -25,16 +25,17 @@ module RSpec
           %<got>s
       MSG
 
-      def initialize(expected, colorize: true)
-        @expected = XmlHelpers.normalize_xml(expected)
+      def initialize(expected, ordered:, colorize: true)
+        @expected = XmlHelpers.normalize_xml(expected, ordered: ordered)
         @diff_format = colorize ? :color : :text
+        @ordered = ordered
       rescue NawsXml::ParseError => error
         raise ArgumentError, format(BAD_EXPECTED,
           error: error.message, got: got(expected))
       end
 
       def matches?(actual)
-        @actual = XmlHelpers.normalize_xml(actual)
+        @actual = XmlHelpers.normalize_xml(actual, ordered: @ordered)
         @expected == @actual
       rescue NawsXml::ParseError => error
         @error_message = format(BAD_ACTUAL,
@@ -68,7 +69,6 @@ module RSpec
         value = xml.inspect if value == ''
         value
       end
-
     end
   end
 end
